@@ -22,13 +22,13 @@ class PersonalAccount extends StatelessWidget {
               children: [
                 Container(
                   width: double.infinity,
-                  height: 320,
+                  height: 350,
                   padding: EdgeInsets.only(left: 20, right: 20),
                   decoration: BoxDecoration(color: Color(0xFF6673CC)),
                   child: Stack(
                     children: [
                       Container(
-                        margin: EdgeInsets.only(top: 60),
+                        margin: EdgeInsets.only(top: 50),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           crossAxisAlignment: CrossAxisAlignment.center,
@@ -53,7 +53,7 @@ class PersonalAccount extends StatelessWidget {
                                     icon: Icon(
                                       Icons.notifications_none_rounded,
                                       color: Colors.white,
-                                      size: 26,
+                                      size: 30,
                                     ),
                                   ),
                                   IconButton(
@@ -61,7 +61,7 @@ class PersonalAccount extends StatelessWidget {
                                     icon: Icon(
                                       Icons.settings_outlined,
                                       color: Colors.white,
-                                      size: 26,
+                                      size: 30,
                                     ),
                                   ),
                                 ],
@@ -79,7 +79,7 @@ class PersonalAccount extends StatelessWidget {
                     width: double.infinity,
                     decoration: BoxDecoration(
                       color: Colors.white,
-                      borderRadius: BorderRadius.circular(5.0),
+                      borderRadius: BorderRadius.circular(10.0),
                     ),
                     child: Column(
                       children: [
