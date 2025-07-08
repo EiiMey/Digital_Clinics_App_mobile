@@ -16,8 +16,6 @@ class PersonalAccount extends StatefulWidget {
 }
 
 class _PersonalAccountState extends State<PersonalAccount> {
-  bool _showDialog = false;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -55,14 +53,6 @@ class _PersonalAccountState extends State<PersonalAccount> {
                             Container(
                               child: Row(
                                 children: [
-                                  IconButton(
-                                    onPressed: () => showLogoutDialog(context),
-                                    icon: Icon(
-                                      Icons.logout_outlined,
-                                      color: Colors.white,
-                                      size: 30,
-                                    ),
-                                  ),
                                   IconButton(
                                     onPressed: () {},
                                     icon: Icon(
@@ -513,110 +503,6 @@ class _PersonalAccountState extends State<PersonalAccount> {
           ),
         ],
       ),
-    );
-  }
-
-  Future showLogoutDialog(BuildContext context) {
-    return showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return AlertDialog(
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(12),
-          ),
-          contentPadding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
-          content: Container(
-            width: 350,
-            height: 460,
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Container(
-                  padding: EdgeInsets.only(bottom: 20),
-                  child: CircleAvatar(
-                    backgroundColor: Colors.indigo.shade50,
-                    radius: 40,
-                    child: Icon(Icons.logout, color: Colors.blue, size: 40),
-                  ),
-                ),
-                Text(
-                  'Log out?',
-                  style: TextStyle(
-                    fontSize: 20,
-                    fontFamily: 'Poppins-Semibold',
-                  ),
-                ),
-                SizedBox(height: 10),
-                Text(
-                  'Are you sure you want to log-out?',
-                  style: TextStyle(
-                    fontFamily: 'Poppins-Regular',
-                    fontSize: 14,
-                    color: Colors.grey[700],
-                  ),
-                  textAlign: TextAlign.center,
-                ),
-                SizedBox(height: 25),
-                Spacer(),
-                SizedBox(
-                  width: double.infinity,
-                  child: ElevatedButton(
-                    onPressed: () {
-                      checkProsonalLog(context);
-                    },
-                    child: Text(
-                      'LOG OUT',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontFamily: 'Poppins-Semibold',
-                        fontSize: 20,
-                      ),
-                    ),
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.indigo.shade400,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(6),
-                      ),
-                      padding: EdgeInsets.symmetric(
-                        vertical: 20,
-                        horizontal: 20,
-                      ),
-                    ),
-                  ),
-                ),
-                SizedBox(height: 10),
-                SizedBox(
-                  width: double.infinity,
-                  child: ElevatedButton(
-                    onPressed: () {
-                      Navigator.of(context).pop();
-                    },
-                    child: Text(
-                      'CANCEL',
-                      style: TextStyle(
-                        color: Colors.indigo.shade400,
-                        fontFamily: 'Poppins-Semibold',
-                        fontSize: 20,
-                      ),
-                    ),
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.indigo.shade50,
-                      shape: RoundedRectangleBorder(
-                        side: BorderSide(color: Colors.indigo.shade400),
-                        borderRadius: BorderRadius.circular(6),
-                      ),
-                      padding: EdgeInsets.symmetric(
-                        vertical: 20,
-                        horizontal: 20,
-                      ),
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ),
-        );
-      },
     );
   }
 
