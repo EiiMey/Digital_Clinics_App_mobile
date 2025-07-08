@@ -10,7 +10,14 @@ void main() {
   );
 }
 
-class PersonalAccount extends StatelessWidget {
+class PersonalAccount extends StatefulWidget {
+  @override
+  State<PersonalAccount> createState() => _PersonalAccountState();
+}
+
+class _PersonalAccountState extends State<PersonalAccount> {
+  bool _showDialog = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -49,6 +56,14 @@ class PersonalAccount extends StatelessWidget {
                               child: Row(
                                 children: [
                                   IconButton(
+                                    onPressed: () => showLogoutDialog(context),
+                                    icon: Icon(
+                                      Icons.logout_outlined,
+                                      color: Colors.white,
+                                      size: 30,
+                                    ),
+                                  ),
+                                  IconButton(
                                     onPressed: () {},
                                     icon: Icon(
                                       Icons.notifications_none_rounded,
@@ -74,7 +89,12 @@ class PersonalAccount extends StatelessWidget {
                   ),
                 ),
                 Container(
-                  margin: EdgeInsets.only(top: 120, left: 20, right: 20, bottom: 20),
+                  margin: EdgeInsets.only(
+                    top: 120,
+                    left: 20,
+                    right: 20,
+                    bottom: 20,
+                  ),
                   child: Container(
                     width: double.infinity,
                     decoration: BoxDecoration(
@@ -103,12 +123,24 @@ class PersonalAccount extends StatelessWidget {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     GestureDetector(
-                                      child: Text('USER NAME',style: TextStyle(fontFamily: 'Poppins-Regular', fontSize: 24, ),),
+                                      child: Text(
+                                        'USER NAME',
+                                        style: TextStyle(
+                                          fontFamily: 'Poppins-Regular',
+                                          fontSize: 24,
+                                        ),
+                                      ),
                                       onTap: () {},
                                     ),
-                                    SizedBox(height: 5,),
+                                    SizedBox(height: 5),
                                     GestureDetector(
-                                      child: Text('Year old', style: TextStyle(fontFamily: 'Poppins-Regular', fontSize: 14),),
+                                      child: Text(
+                                        'Year old',
+                                        style: TextStyle(
+                                          fontFamily: 'Poppins-Regular',
+                                          fontSize: 14,
+                                        ),
+                                      ),
                                       onTap: () {},
                                     ),
                                   ],
@@ -133,21 +165,26 @@ class PersonalAccount extends StatelessWidget {
                                     height: 60,
                                     decoration: BoxDecoration(
                                       color: Colors.indigo.shade400,
-                                      borderRadius: BorderRadius.circular(50)
+                                      borderRadius: BorderRadius.circular(50),
                                     ),
-                                    child: Icon(Icons.person_outline, size: 28,),
+                                    child: Icon(
+                                      Icons.person_outline,
+                                      size: 28,
+                                      color: Colors.white,
+                                    ),
                                   ),
-                                  SizedBox(height: 10,),
+                                  SizedBox(height: 10),
                                   GestureDetector(
-                                    child: Text(' Saved\nDoctors', style: TextStyle(
-                                      fontFamily: 'Poppins-Regular',
-                                      color: Colors.grey.shade600,
-                                      fontSize: 16,
-                                      ),),
-                                    onTap: () {
-                                      
-                                    },
-                                  )
+                                    child: Text(
+                                      ' Saved\nDoctors',
+                                      style: TextStyle(
+                                        fontFamily: 'Poppins-Regular',
+                                        color: Colors.grey.shade600,
+                                        fontSize: 16,
+                                      ),
+                                    ),
+                                    onTap: () {},
+                                  ),
                                 ],
                               ),
                               Column(
@@ -159,21 +196,26 @@ class PersonalAccount extends StatelessWidget {
                                     height: 60,
                                     decoration: BoxDecoration(
                                       color: Colors.lightBlue.shade300,
-                                      borderRadius: BorderRadius.circular(50)
+                                      borderRadius: BorderRadius.circular(50),
                                     ),
-                                    child: Icon(Icons.article_outlined, size: 28,),
+                                    child: Icon(
+                                      Icons.article_outlined,
+                                      size: 28,
+                                      color: Colors.white,
+                                    ),
                                   ),
-                                  SizedBox(height: 10,),
+                                  SizedBox(height: 10),
                                   GestureDetector(
-                                    child: Text(' Saved\nArticles', style: TextStyle(
-                                      fontFamily: 'Poppins-Regular',
-                                      color: Colors.grey.shade600,
-                                      fontSize: 16,
-                                      ),),
-                                    onTap: () {
-                                      
-                                    },
-                                  )
+                                    child: Text(
+                                      ' Saved\nArticles',
+                                      style: TextStyle(
+                                        fontFamily: 'Poppins-Regular',
+                                        color: Colors.grey.shade600,
+                                        fontSize: 16,
+                                      ),
+                                    ),
+                                    onTap: () {},
+                                  ),
                                 ],
                               ),
                               Column(
@@ -184,22 +226,27 @@ class PersonalAccount extends StatelessWidget {
                                     width: 60,
                                     height: 60,
                                     decoration: BoxDecoration(
-                                      color: Colors.green.shade300,
-                                      borderRadius: BorderRadius.circular(50)
+                                      color: Colors.green.shade400,
+                                      borderRadius: BorderRadius.circular(50),
                                     ),
-                                    child: Icon(Icons.favorite_border, size: 28,),
+                                    child: Icon(
+                                      Icons.favorite_border,
+                                      size: 28,
+                                      color: Colors.white,
+                                    ),
                                   ),
-                                  SizedBox(height: 10,),
+                                  SizedBox(height: 10),
                                   GestureDetector(
-                                    child: Text('Health\n Diary', style: TextStyle(
-                                      fontFamily: 'Poppins-Regular',
-                                      color: Colors.grey.shade600,
-                                      fontSize: 16,
-                                      ),),
-                                    onTap: () {
-                                      
-                                    },
-                                  )
+                                    child: Text(
+                                      'Health\n Diary',
+                                      style: TextStyle(
+                                        fontFamily: 'Poppins-Regular',
+                                        color: Colors.grey.shade600,
+                                        fontSize: 16,
+                                      ),
+                                    ),
+                                    onTap: () {},
+                                  ),
                                 ],
                               ),
                             ],
@@ -214,16 +261,32 @@ class PersonalAccount extends StatelessWidget {
                             decoration: BoxDecoration(
                               color: Colors.indigo.shade50,
                               borderRadius: BorderRadius.circular(10),
-                              border: Border.all(color: Colors.indigo, width: 2),
+                              border: Border.all(
+                                color: Colors.indigo,
+                                width: 2,
+                              ),
                             ),
                             child: Row(
                               children: [
                                 Container(
                                   child: Column(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
                                     children: [
-                                      Text('30%', style: TextStyle(fontFamily: 'Poppins-Semibold', fontSize: 26),),
-                                      Text('Refer a friend and get discount', style: TextStyle(fontFamily: 'Poppins-Regular', fontSize: 14),),
+                                      Text(
+                                        '30%',
+                                        style: TextStyle(
+                                          fontFamily: 'Poppins-Semibold',
+                                          fontSize: 26,
+                                        ),
+                                      ),
+                                      Text(
+                                        'Refer a friend and get discount',
+                                        style: TextStyle(
+                                          fontFamily: 'Poppins-Regular',
+                                          fontSize: 14,
+                                        ),
+                                      ),
                                     ],
                                   ),
                                 ),
@@ -233,7 +296,7 @@ class PersonalAccount extends StatelessWidget {
                                     padding: EdgeInsets.all(10),
                                     decoration: BoxDecoration(
                                       color: Colors.lightBlue,
-                                      borderRadius: BorderRadius.circular(50)
+                                      borderRadius: BorderRadius.circular(50),
                                     ),
                                     child: Container(
                                       width: 40,
@@ -243,7 +306,11 @@ class PersonalAccount extends StatelessWidget {
                                         color: Colors.indigo[400],
                                         borderRadius: BorderRadius.circular(50),
                                       ),
-                                      child: Icon(Icons.percent_sharp,color: Colors.white, size: 30,),
+                                      child: Icon(
+                                        Icons.percent_sharp,
+                                        color: Colors.white,
+                                        size: 30,
+                                      ),
                                     ),
                                   ),
                                 ),
@@ -251,7 +318,7 @@ class PersonalAccount extends StatelessWidget {
                             ),
                           ),
                         ),
-                        SizedBox(height: 20,),
+                        SizedBox(height: 20),
                         Container(
                           width: double.infinity,
                           child: Column(
@@ -264,22 +331,28 @@ class PersonalAccount extends StatelessWidget {
                                     borderRadius: BorderRadius.circular(10),
                                   ),
                                   alignment: Alignment.center,
-                                  child: Icon(Icons.calendar_month_outlined, size: 30,),
+                                  child: Icon(
+                                    Icons.calendar_month_outlined,
+                                    size: 30,
+                                  ),
                                 ),
-                                title: Text('Appointments', style: TextStyle(fontFamily: 'Poppins-Semibold', fontSize: 18, color: Colors.grey.shade800),),
+                                title: Text(
+                                  'Appointments',
+                                  style: TextStyle(
+                                    fontFamily: 'Poppins-Semibold',
+                                    fontSize: 18,
+                                    color: Colors.grey.shade800,
+                                  ),
+                                ),
                                 trailing: IconButton(
                                   icon: Icon(Icons.arrow_forward_ios_rounded),
-                                  onPressed: () {
-                                  
-                                  },
+                                  onPressed: () {},
                                 ),
-                                onTap: () {
-                                  
-                                },
+                                onTap: () {},
                               ),
-                              SizedBox(height: 10,),
+                              SizedBox(height: 10),
                               Divider(),
-                              SizedBox(height: 10,),
+                              SizedBox(height: 10),
                               ListTile(
                                 leading: Container(
                                   width: 50,
@@ -288,22 +361,28 @@ class PersonalAccount extends StatelessWidget {
                                     borderRadius: BorderRadius.circular(10),
                                   ),
                                   alignment: Alignment.center,
-                                  child: Icon(Icons.water_drop_outlined, size: 30,),
+                                  child: Icon(
+                                    Icons.water_drop_outlined,
+                                    size: 30,
+                                  ),
                                 ),
-                                title: Text('Pills Reminder', style: TextStyle(fontFamily: 'Poppins-Semibold', fontSize: 18, color: Colors.grey.shade800),),
+                                title: Text(
+                                  'Pills Reminder',
+                                  style: TextStyle(
+                                    fontFamily: 'Poppins-Semibold',
+                                    fontSize: 18,
+                                    color: Colors.grey.shade800,
+                                  ),
+                                ),
                                 trailing: IconButton(
                                   icon: Icon(Icons.arrow_forward_ios_rounded),
-                                  onPressed: () {
-                                  
-                                  },
+                                  onPressed: () {},
                                 ),
-                                onTap: () {
-                                  
-                                },
+                                onTap: () {},
                               ),
-                              SizedBox(height: 10,),
+                              SizedBox(height: 10),
                               Divider(),
-                              SizedBox(height: 10,),
+                              SizedBox(height: 10),
                               ListTile(
                                 leading: Container(
                                   width: 50,
@@ -312,22 +391,28 @@ class PersonalAccount extends StatelessWidget {
                                     borderRadius: BorderRadius.circular(10),
                                   ),
                                   alignment: Alignment.center,
-                                  child: Icon(Icons.person_outline_rounded, size: 30,),
+                                  child: Icon(
+                                    Icons.person_outline_rounded,
+                                    size: 30,
+                                  ),
                                 ),
-                                title: Text('My Doctors', style: TextStyle(fontFamily: 'Poppins-Semibold', fontSize: 18, color: Colors.grey.shade800),),
+                                title: Text(
+                                  'My Doctors',
+                                  style: TextStyle(
+                                    fontFamily: 'Poppins-Semibold',
+                                    fontSize: 18,
+                                    color: Colors.grey.shade800,
+                                  ),
+                                ),
                                 trailing: IconButton(
                                   icon: Icon(Icons.arrow_forward_ios_rounded),
-                                  onPressed: () {
-                                  
-                                  },
+                                  onPressed: () {},
                                 ),
-                                onTap: () {
-                                  
-                                },
+                                onTap: () {},
                               ),
-                              SizedBox(height: 10,),
+                              SizedBox(height: 10),
                               Divider(),
-                              SizedBox(height: 10,),
+                              SizedBox(height: 10),
                               ListTile(
                                 leading: Container(
                                   width: 50,
@@ -336,22 +421,28 @@ class PersonalAccount extends StatelessWidget {
                                     borderRadius: BorderRadius.circular(10),
                                   ),
                                   alignment: Alignment.center,
-                                  child: Icon(Icons.work_outline_rounded, size: 30,),
+                                  child: Icon(
+                                    Icons.work_outline_rounded,
+                                    size: 30,
+                                  ),
                                 ),
-                                title: Text('Insurance Plan', style: TextStyle(fontFamily: 'Poppins-Semibold', fontSize: 18, color: Colors.grey.shade800),),
+                                title: Text(
+                                  'Insurance Plan',
+                                  style: TextStyle(
+                                    fontFamily: 'Poppins-Semibold',
+                                    fontSize: 18,
+                                    color: Colors.grey.shade800,
+                                  ),
+                                ),
                                 trailing: IconButton(
                                   icon: Icon(Icons.arrow_forward_ios_rounded),
-                                  onPressed: () {
-                                  
-                                  },
+                                  onPressed: () {},
                                 ),
-                                onTap: () {
-                                  
-                                },
+                                onTap: () {},
                               ),
-                              SizedBox(height: 10,),
+                              SizedBox(height: 10),
                               Divider(),
-                              SizedBox(height: 10,),
+                              SizedBox(height: 10),
                               ListTile(
                                 leading: Container(
                                   width: 50,
@@ -360,22 +451,28 @@ class PersonalAccount extends StatelessWidget {
                                     borderRadius: BorderRadius.circular(10),
                                   ),
                                   alignment: Alignment.center,
-                                  child: Icon(Icons.insert_drive_file_outlined, size: 30,),
+                                  child: Icon(
+                                    Icons.insert_drive_file_outlined,
+                                    size: 30,
+                                  ),
                                 ),
-                                title: Text('EHR Files', style: TextStyle(fontFamily: 'Poppins-Semibold', fontSize: 18, color: Colors.grey.shade800),),
+                                title: Text(
+                                  'EHR Files',
+                                  style: TextStyle(
+                                    fontFamily: 'Poppins-Semibold',
+                                    fontSize: 18,
+                                    color: Colors.grey.shade800,
+                                  ),
+                                ),
                                 trailing: IconButton(
                                   icon: Icon(Icons.arrow_forward_ios_rounded),
-                                  onPressed: () {
-                                  
-                                  },
+                                  onPressed: () {},
                                 ),
-                                onTap: () {
-                                  
-                                },
+                                onTap: () {},
                               ),
-                              SizedBox(height: 10,),
+                              SizedBox(height: 10),
                               Divider(),
-                              SizedBox(height: 10,),
+                              SizedBox(height: 10),
                               ListTile(
                                 leading: Container(
                                   width: 50,
@@ -384,23 +481,29 @@ class PersonalAccount extends StatelessWidget {
                                     borderRadius: BorderRadius.circular(10),
                                   ),
                                   alignment: Alignment.center,
-                                  child: Icon(Icons.credit_card_rounded, size: 30,),
+                                  child: Icon(
+                                    Icons.credit_card_rounded,
+                                    size: 30,
+                                  ),
                                 ),
-                                title: Text('Payment History', style: TextStyle(fontFamily: 'Poppins-Semibold', fontSize: 18, color: Colors.grey.shade800),),
+                                title: Text(
+                                  'Payment History',
+                                  style: TextStyle(
+                                    fontFamily: 'Poppins-Semibold',
+                                    fontSize: 18,
+                                    color: Colors.grey.shade800,
+                                  ),
+                                ),
                                 trailing: IconButton(
                                   icon: Icon(Icons.arrow_forward_ios_rounded),
-                                  onPressed: () {
-                                  
-                                  },
+                                  onPressed: () {},
                                 ),
-                                onTap: () {
-                                  
-                                },
+                                onTap: () {},
                               ),
-                              SizedBox(height: 20,),
+                              SizedBox(height: 20),
                             ],
                           ),
-                        )
+                        ),
                       ],
                     ),
                   ),
@@ -410,6 +513,191 @@ class PersonalAccount extends StatelessWidget {
           ),
         ],
       ),
+    );
+  }
+
+  Future showLogoutDialog(BuildContext context) {
+    return showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(12),
+          ),
+          contentPadding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+          content: Container(
+            width: 350,
+            height: 460,
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Container(
+                  padding: EdgeInsets.only(bottom: 20),
+                  child: CircleAvatar(
+                    backgroundColor: Colors.indigo.shade50,
+                    radius: 40,
+                    child: Icon(Icons.logout, color: Colors.blue, size: 40),
+                  ),
+                ),
+                Text(
+                  'Log out?',
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontFamily: 'Poppins-Semibold',
+                  ),
+                ),
+                SizedBox(height: 10),
+                Text(
+                  'Are you sure you want to log-out?',
+                  style: TextStyle(
+                    fontFamily: 'Poppins-Regular',
+                    fontSize: 14,
+                    color: Colors.grey[700],
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+                SizedBox(height: 25),
+                Spacer(),
+                SizedBox(
+                  width: double.infinity,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      checkProsonalLog(context);
+                    },
+                    child: Text(
+                      'LOG OUT',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontFamily: 'Poppins-Semibold',
+                        fontSize: 20,
+                      ),
+                    ),
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.indigo.shade400,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(6),
+                      ),
+                      padding: EdgeInsets.symmetric(
+                        vertical: 20,
+                        horizontal: 20,
+                      ),
+                    ),
+                  ),
+                ),
+                SizedBox(height: 10),
+                SizedBox(
+                  width: double.infinity,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      Navigator.of(context).pop();
+                    },
+                    child: Text(
+                      'CANCEL',
+                      style: TextStyle(
+                        color: Colors.indigo.shade400,
+                        fontFamily: 'Poppins-Semibold',
+                        fontSize: 20,
+                      ),
+                    ),
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.indigo.shade50,
+                      shape: RoundedRectangleBorder(
+                        side: BorderSide(color: Colors.indigo.shade400),
+                        borderRadius: BorderRadius.circular(6),
+                      ),
+                      padding: EdgeInsets.symmetric(
+                        vertical: 20,
+                        horizontal: 20,
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        );
+      },
+    );
+  }
+
+  Future checkProsonalLog(BuildContext context) {
+    return showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(12),
+          ),
+          contentPadding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+          content: Container(
+            width: 350,
+            height: 460,
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Container(
+                  padding: EdgeInsets.only(bottom: 20),
+                  child: CircleAvatar(
+                    backgroundColor: Colors.green.shade50,
+                    radius: 40,
+                    child: Icon(
+                      Icons.check_circle,
+                      color: Colors.lightGreenAccent.shade700,
+                      size: 40,
+                    ),
+                  ),
+                ),
+                Text(
+                  'Success!',
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontFamily: 'Poppins-Semibold',
+                    color: Colors.lightGreenAccent.shade700,
+                  ),
+                ),
+                SizedBox(height: 10),
+                Text(
+                  'The password is changed',
+                  style: TextStyle(
+                    fontFamily: 'Poppins-Regular',
+                    fontSize: 14,
+                    color: Colors.grey[700],
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+                SizedBox(height: 25),
+                Spacer(),
+                SizedBox(
+                  width: double.infinity,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      Navigator.of(context).pop();
+                    },
+                    child: Text(
+                      'GOT IT',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontFamily: 'Poppins-Semibold',
+                        fontSize: 20,
+                      ),
+                    ),
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.indigo.shade400,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(6),
+                      ),
+                      padding: EdgeInsets.symmetric(
+                        vertical: 20,
+                        horizontal: 20,
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        );
+      },
     );
   }
 }
