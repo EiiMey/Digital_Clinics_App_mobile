@@ -1,8 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:_113_clinics_app_mobile/profiles_layout/personal_account.dart';
+import 'package:_113_clinics_app_mobile/profiles_layout/edit_account.dart';
+import 'package:_113_clinics_app_mobile/profiles_layout/notification_settings.dart';
 
 void main() {
   runApp(
-    MaterialApp(debugShowCheckedModeBanner: false, home: ProfileSettingsPage()),
+    MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: ProfileSettingsPage(),
+      routes: {
+        '/profile-setting': (context) => ProfileSettingsPage(),
+        '/edit-account': (context) => EditAccountPage(),
+        '/notification-settings': (context) => NotificationPage(),
+      },
+      initialRoute: '/profile-setting',
+    ),
   );
 }
 
@@ -11,58 +23,122 @@ class ProfileSettingsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.grey.shade100,
-      appBar: AppBar(
-        backgroundColor: Colors.blue.shade700,
-        leading: Icon(Icons.arrow_back, color: Colors.white),
-        title: Text('Profile Settings', style: TextStyle(color: Colors.white)),
-      ),
-      body: Column(
+      body: Stack(
         children: [
           Container(
-            color: Colors.blue.shade700,
+            color: Colors.indigo.shade400,
             width: double.infinity,
-            padding: EdgeInsets.symmetric(vertical: 20),
-            child: Column(
-              children: [
-                CircleAvatar(
-                  radius: 40,
-                  backgroundImage: AssetImage(
-                    'assets/images/profile.jpg',
-                  ), // Change to your image asset
+            height: 350,
+            padding: EdgeInsets.only(top: 40),
+            child: ListTile(
+              leading: IconButton(
+                icon: Icon(
+                  Icons.arrow_back_ios_new_rounded,
+                  size: 30,
+                  color: Colors.white,
                 ),
-                SizedBox(height: 10),
-                Text(
-                  'Tsutsui Ichiha',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                  ),
+                onPressed: () {
+                  Navigator.of(context).pop(PersonalAccount());
+                },
+              ),
+              title: Text(
+                'Profile Setting',
+                style: TextStyle(
+                  fontFamily: 'Poppins-Semibold',
+                  fontSize: 28,
+                  color: Colors.white,
                 ),
-                Text(
-                  'Tsutsui@gmail.com',
-                  style: TextStyle(color: Colors.white70, fontSize: 14),
-                ),
-              ],
+              ),
             ),
           ),
-          Expanded(
+          Container(
+            margin: EdgeInsets.only(top: 120, bottom: 20, left: 20, right: 20),
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(10),
+            ),
             child: ListView(
-              padding: EdgeInsets.all(16),
               children: [
-                buildSettingsItem(Icons.settings, 'Account Settings', context),
-                buildSettingsItem(
-                  Icons.notifications,
-                  'Notifications',
-                  context,
+                Container(
+                  padding: EdgeInsets.only(top: 80),
+                  child: Column(
+                    children: [
+                      CircleAvatar(
+                        radius: 60,
+                        backgroundImage: AssetImage(
+                          'assets/images/profile.jpg',
+                        ),
+                      ),
+                      SizedBox(height: 10),
+                      Text(
+                        'Tsutsui Ichiha',
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 18,
+                          fontFamily: 'Poppins-Semibold',
+                        ),
+                      ),
+                      Text(
+                        'Tsutsui@gmail.com',
+                        style: TextStyle(
+                          color: Colors.grey.shade800,
+                          fontSize: 14,
+                          fontFamily: 'Poppins-Regular',
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
-                buildSettingsItem(Icons.help_outline, 'Support', context),
-                buildSettingsItem(Icons.security, 'Privacy Policy', context),
-                buildSettingsItem(
-                  Icons.logout,
-                  'Log Out',
-                  context,
-                  isLogout: true,
+                SizedBox(height: 20),
+                Container(
+                  child: Column(
+                    children: [
+                      Container(
+                        padding: EdgeInsets.all(20),
+                        child: buildSettingsItem(
+                          Icons.edit,
+                          'Account Settings',
+                          context,
+                        ),
+                      ),
+                      Divider(),
+                      Container(
+                        padding: EdgeInsets.all(20),
+                        child: buildSettingsItem(
+                          Icons.notifications,
+                          'Notifications',
+                          context,
+                        ),
+                      ),
+                      Divider(),
+                      Container(
+                        padding: EdgeInsets.all(20),
+                        child: buildSettingsItem(
+                          Icons.help,
+                          'Support',
+                          context,
+                        ),
+                      ),
+                      Divider(),
+                      Container(
+                        padding: EdgeInsets.all(20),
+                        child: buildSettingsItem(
+                          Icons.shield,
+                          'Privacy Policy',
+                          context,
+                        ),
+                      ),
+                      Divider(),
+                      Container(
+                        padding: EdgeInsets.all(20),
+                        child: buildSettingsItem(
+                          Icons.logout_outlined,
+                          'Log Out',
+                          context,
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ],
             ),
@@ -72,27 +148,43 @@ class ProfileSettingsPage extends StatelessWidget {
     );
   }
 
-  Widget buildSettingsItem(
-    IconData icon,
-    String title,
-    BuildContext context, {
-    bool isLogout = false,
-  }) {
-    return Card(
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
-      margin: EdgeInsets.symmetric(vertical: 6),
-      child: ListTile(
-        leading: Icon(icon, color: Colors.blue.shade700),
-        title: Text(title),
-        trailing: Icon(Icons.arrow_forward_ios, size: 16),
-        onTap: () {
-          if (isLogout) {
-            showLogoutDialog(context);
-          } else {
-            // Navigate to the corresponding page
-          }
-        },
+  Widget buildSettingsItem(IconData icon, String title, BuildContext context) {
+    return ListTile(
+      leading: Container(
+        width: 50,
+        decoration: BoxDecoration(
+          color: Colors.indigo.shade50,
+          borderRadius: BorderRadius.circular(5),
+        ),
+        alignment: Alignment.center,
+        child: Icon(icon, color: Colors.indigo.shade400, size: 30),
       ),
+      title: Text(
+        title,
+        style: TextStyle(
+          fontFamily: 'Poppins-Semibold',
+          fontSize: 18,
+          color: Colors.grey.shade700,
+        ),
+      ),
+      trailing: Icon(Icons.arrow_forward_ios_rounded, size: 28),
+      onTap: () {
+        if (title == 'Log Out') {
+          showLogoutDialog(context);
+        } else if (title == 'Account Settings') {
+          Navigator.pushNamed(context, '/edit-account');
+        } else if (title == 'Notifications') {
+          Navigator.pushNamed(context, '/notification-settings');
+        } else if (title == 'Support') {
+          ScaffoldMessenger.of(
+            context,
+          ).showSnackBar(SnackBar(content: Text('Support page coming soon!')));
+        } else if (title == 'Privacy Policy') {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(content: Text('Privacy Policy coming soon!')),
+          );
+        }
+      },
     );
   }
 
@@ -141,9 +233,7 @@ class ProfileSettingsPage extends StatelessWidget {
                 SizedBox(
                   width: double.infinity,
                   child: ElevatedButton(
-                    onPressed: () {
-                      
-                    },
+                    onPressed: () {},
                     child: Text(
                       'LOG OUT',
                       style: TextStyle(
@@ -199,6 +289,4 @@ class ProfileSettingsPage extends StatelessWidget {
       },
     );
   }
-
-  
 }

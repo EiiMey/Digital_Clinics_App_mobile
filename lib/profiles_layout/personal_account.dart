@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:_113_clinics_app_mobile/profiles_layout/profile_settings.dart';
 
 void main() {
   runApp(
@@ -6,6 +7,11 @@ void main() {
       debugShowCheckedModeBanner: false,
       title: 'Personal.Account',
       home: PersonalAccount(),
+      routes: {
+        '/personal-account': (context) => PersonalAccount(),
+        '/profile-settings': (context) => ProfileSettingsPage(),
+      },
+      initialRoute:  '/personal-account',
     ),
   );
 }
@@ -33,7 +39,7 @@ class _PersonalAccountState extends State<PersonalAccount> {
                   child: Stack(
                     children: [
                       Container(
-                        margin: EdgeInsets.only(top: 50),
+                        margin: EdgeInsets.only(top: 40),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           crossAxisAlignment: CrossAxisAlignment.center,
@@ -62,7 +68,9 @@ class _PersonalAccountState extends State<PersonalAccount> {
                                     ),
                                   ),
                                   IconButton(
-                                    onPressed: () {},
+                                    onPressed: () {
+                                      Navigator.pushNamed(context, '/profile-settings');
+                                    },
                                     icon: Icon(
                                       Icons.settings_outlined,
                                       color: Colors.white,
@@ -318,11 +326,12 @@ class _PersonalAccountState extends State<PersonalAccount> {
                                   width: 50,
                                   decoration: BoxDecoration(
                                     color: Colors.indigo.shade50,
-                                    borderRadius: BorderRadius.circular(10),
+                                    borderRadius: BorderRadius.circular(5),
                                   ),
                                   alignment: Alignment.center,
                                   child: Icon(
                                     Icons.calendar_month_outlined,
+                                    color: Colors.indigo.shade400,
                                     size: 30,
                                   ),
                                 ),
@@ -348,11 +357,12 @@ class _PersonalAccountState extends State<PersonalAccount> {
                                   width: 50,
                                   decoration: BoxDecoration(
                                     color: Colors.indigo.shade50,
-                                    borderRadius: BorderRadius.circular(10),
+                                    borderRadius: BorderRadius.circular(5),
                                   ),
                                   alignment: Alignment.center,
                                   child: Icon(
                                     Icons.water_drop_outlined,
+                                    color: Colors.indigo.shade400,
                                     size: 30,
                                   ),
                                 ),
@@ -378,11 +388,12 @@ class _PersonalAccountState extends State<PersonalAccount> {
                                   width: 50,
                                   decoration: BoxDecoration(
                                     color: Colors.indigo.shade50,
-                                    borderRadius: BorderRadius.circular(10),
+                                    borderRadius: BorderRadius.circular(5),
                                   ),
                                   alignment: Alignment.center,
                                   child: Icon(
                                     Icons.person_outline_rounded,
+                                    color: Colors.indigo.shade400,
                                     size: 30,
                                   ),
                                 ),
@@ -408,11 +419,12 @@ class _PersonalAccountState extends State<PersonalAccount> {
                                   width: 50,
                                   decoration: BoxDecoration(
                                     color: Colors.indigo.shade50,
-                                    borderRadius: BorderRadius.circular(10),
+                                    borderRadius: BorderRadius.circular(5),
                                   ),
                                   alignment: Alignment.center,
                                   child: Icon(
                                     Icons.work_outline_rounded,
+                                    color: Colors.indigo.shade400,
                                     size: 30,
                                   ),
                                 ),
@@ -438,11 +450,12 @@ class _PersonalAccountState extends State<PersonalAccount> {
                                   width: 50,
                                   decoration: BoxDecoration(
                                     color: Colors.indigo.shade50,
-                                    borderRadius: BorderRadius.circular(10),
+                                    borderRadius: BorderRadius.circular(5),
                                   ),
                                   alignment: Alignment.center,
                                   child: Icon(
                                     Icons.insert_drive_file_outlined,
+                                    color: Colors.indigo.shade400,
                                     size: 30,
                                   ),
                                 ),
@@ -468,11 +481,12 @@ class _PersonalAccountState extends State<PersonalAccount> {
                                   width: 50,
                                   decoration: BoxDecoration(
                                     color: Colors.indigo.shade50,
-                                    borderRadius: BorderRadius.circular(10),
+                                    borderRadius: BorderRadius.circular(5),
                                   ),
                                   alignment: Alignment.center,
                                   child: Icon(
                                     Icons.credit_card_rounded,
+                                    color: Colors.indigo.shade400,
                                     size: 30,
                                   ),
                                 ),
