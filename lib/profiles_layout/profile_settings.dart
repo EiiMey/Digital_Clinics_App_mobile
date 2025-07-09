@@ -3,21 +3,6 @@ import 'package:_113_clinics_app_mobile/profiles_layout/personal_account.dart';
 import 'package:_113_clinics_app_mobile/profiles_layout/edit_account.dart';
 import 'package:_113_clinics_app_mobile/profiles_layout/notification_settings.dart';
 
-void main() {
-  runApp(
-    MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: ProfileSettingsPage(),
-      routes: {
-        '/profile-setting': (context) => ProfileSettingsPage(),
-        '/edit-account': (context) => EditAccountPage(),
-        '/notification-settings': (context) => NotificationPage(),
-      },
-      initialRoute: '/profile-setting',
-    ),
-  );
-}
-
 class ProfileSettingsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -38,7 +23,10 @@ class ProfileSettingsPage extends StatelessWidget {
                   color: Colors.white,
                 ),
                 onPressed: () {
-                  Navigator.of(context).pop(PersonalAccount());
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => PersonalAccount()),
+                  );
                 },
               ),
               title: Text(
@@ -66,7 +54,7 @@ class ProfileSettingsPage extends StatelessWidget {
                       CircleAvatar(
                         radius: 60,
                         backgroundImage: AssetImage(
-                          'assets/images/profile.jpg',
+                          'assets/images/Avatar.png',
                         ),
                       ),
                       SizedBox(height: 10),
@@ -172,9 +160,17 @@ class ProfileSettingsPage extends StatelessWidget {
         if (title == 'Log Out') {
           showLogoutDialog(context);
         } else if (title == 'Account Settings') {
-          Navigator.pushNamed(context, '/edit-account');
+          // Navigator.pushNamed(context, '/edit-account');
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => EditAccountPage()),
+          );
         } else if (title == 'Notifications') {
-          Navigator.pushNamed(context, '/notification-settings');
+          // Navigator.pushNamed(context, '/notification-settings');
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => NotificationPage()),
+          );
         } else if (title == 'Support') {
           ScaffoldMessenger.of(
             context,

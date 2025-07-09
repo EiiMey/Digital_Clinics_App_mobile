@@ -7,11 +7,6 @@ void main() {
       debugShowCheckedModeBanner: false,
       title: 'Personal.Account',
       home: PersonalAccount(),
-      routes: {
-        '/personal-account': (context) => PersonalAccount(),
-        '/profile-settings': (context) => ProfileSettingsPage(),
-      },
-      initialRoute:  '/personal-account',
     ),
   );
 }
@@ -69,7 +64,13 @@ class _PersonalAccountState extends State<PersonalAccount> {
                                   ),
                                   IconButton(
                                     onPressed: () {
-                                      Navigator.pushNamed(context, '/profile-settings');
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (context) =>
+                                              ProfileSettingsPage(),
+                                        ),
+                                      );
                                     },
                                     icon: Icon(
                                       Icons.settings_outlined,
@@ -316,195 +317,72 @@ class _PersonalAccountState extends State<PersonalAccount> {
                             ),
                           ),
                         ),
-                        SizedBox(height: 20),
+                        SizedBox(height: 10),
                         Container(
                           width: double.infinity,
                           child: Column(
                             children: [
-                              ListTile(
-                                leading: Container(
-                                  width: 50,
-                                  decoration: BoxDecoration(
-                                    color: Colors.indigo.shade50,
-                                    borderRadius: BorderRadius.circular(5),
-                                  ),
-                                  alignment: Alignment.center,
-                                  child: Icon(
-                                    Icons.calendar_month_outlined,
-                                    color: Colors.indigo.shade400,
-                                    size: 30,
-                                  ),
+                              Container(
+                                padding: EdgeInsets.all(10),
+                                width: double.infinity,
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    blockMenuButton(
+                                      Icons.calendar_month_outlined,
+                                      'Appointments',
+                                      context,
+                                    ),
+                                    blockMenuButton(
+                                      Icons.water_drop_outlined,
+                                      'Pills Reminder',
+                                      context,
+                                    ),
+                                  ],
                                 ),
-                                title: Text(
-                                  'Appointments',
-                                  style: TextStyle(
-                                    fontFamily: 'Poppins-Semibold',
-                                    fontSize: 18,
-                                    color: Colors.grey.shade800,
-                                  ),
-                                ),
-                                trailing: IconButton(
-                                  icon: Icon(Icons.arrow_forward_ios_rounded),
-                                  onPressed: () {},
-                                ),
-                                onTap: () {},
                               ),
-                              SizedBox(height: 10),
-                              Divider(),
-                              SizedBox(height: 10),
-                              ListTile(
-                                leading: Container(
-                                  width: 50,
-                                  decoration: BoxDecoration(
-                                    color: Colors.indigo.shade50,
-                                    borderRadius: BorderRadius.circular(5),
-                                  ),
-                                  alignment: Alignment.center,
-                                  child: Icon(
-                                    Icons.water_drop_outlined,
-                                    color: Colors.indigo.shade400,
-                                    size: 30,
-                                  ),
+                              Container(
+                                padding: EdgeInsets.all(10),
+                                width: double.infinity,
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    blockMenuButton(
+                                      Icons.person_outline_rounded,
+                                      'My Doctors',
+                                      context,
+                                    ),
+                                    blockMenuButton(
+                                      Icons.work_outline_rounded,
+                                      'Insurance Plan',
+                                      context,
+                                    ),
+                                  ],
                                 ),
-                                title: Text(
-                                  'Pills Reminder',
-                                  style: TextStyle(
-                                    fontFamily: 'Poppins-Semibold',
-                                    fontSize: 18,
-                                    color: Colors.grey.shade800,
-                                  ),
-                                ),
-                                trailing: IconButton(
-                                  icon: Icon(Icons.arrow_forward_ios_rounded),
-                                  onPressed: () {},
-                                ),
-                                onTap: () {},
                               ),
-                              SizedBox(height: 10),
-                              Divider(),
-                              SizedBox(height: 10),
-                              ListTile(
-                                leading: Container(
-                                  width: 50,
-                                  decoration: BoxDecoration(
-                                    color: Colors.indigo.shade50,
-                                    borderRadius: BorderRadius.circular(5),
-                                  ),
-                                  alignment: Alignment.center,
-                                  child: Icon(
-                                    Icons.person_outline_rounded,
-                                    color: Colors.indigo.shade400,
-                                    size: 30,
-                                  ),
+                              Container(
+                                padding: EdgeInsets.all(10),
+                                width: double.infinity,
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    blockMenuButton(
+                                      Icons.insert_drive_file_outlined,
+                                      'EHR Files',
+                                      context,
+                                    ),
+                                    blockMenuButton(
+                                      Icons.credit_card_rounded,
+                                      'Payment History',
+                                      context,
+                                    ),
+                                  ],
                                 ),
-                                title: Text(
-                                  'My Doctors',
-                                  style: TextStyle(
-                                    fontFamily: 'Poppins-Semibold',
-                                    fontSize: 18,
-                                    color: Colors.grey.shade800,
-                                  ),
-                                ),
-                                trailing: IconButton(
-                                  icon: Icon(Icons.arrow_forward_ios_rounded),
-                                  onPressed: () {},
-                                ),
-                                onTap: () {},
                               ),
-                              SizedBox(height: 10),
-                              Divider(),
-                              SizedBox(height: 10),
-                              ListTile(
-                                leading: Container(
-                                  width: 50,
-                                  decoration: BoxDecoration(
-                                    color: Colors.indigo.shade50,
-                                    borderRadius: BorderRadius.circular(5),
-                                  ),
-                                  alignment: Alignment.center,
-                                  child: Icon(
-                                    Icons.work_outline_rounded,
-                                    color: Colors.indigo.shade400,
-                                    size: 30,
-                                  ),
-                                ),
-                                title: Text(
-                                  'Insurance Plan',
-                                  style: TextStyle(
-                                    fontFamily: 'Poppins-Semibold',
-                                    fontSize: 18,
-                                    color: Colors.grey.shade800,
-                                  ),
-                                ),
-                                trailing: IconButton(
-                                  icon: Icon(Icons.arrow_forward_ios_rounded),
-                                  onPressed: () {},
-                                ),
-                                onTap: () {},
-                              ),
-                              SizedBox(height: 10),
-                              Divider(),
-                              SizedBox(height: 10),
-                              ListTile(
-                                leading: Container(
-                                  width: 50,
-                                  decoration: BoxDecoration(
-                                    color: Colors.indigo.shade50,
-                                    borderRadius: BorderRadius.circular(5),
-                                  ),
-                                  alignment: Alignment.center,
-                                  child: Icon(
-                                    Icons.insert_drive_file_outlined,
-                                    color: Colors.indigo.shade400,
-                                    size: 30,
-                                  ),
-                                ),
-                                title: Text(
-                                  'EHR Files',
-                                  style: TextStyle(
-                                    fontFamily: 'Poppins-Semibold',
-                                    fontSize: 18,
-                                    color: Colors.grey.shade800,
-                                  ),
-                                ),
-                                trailing: IconButton(
-                                  icon: Icon(Icons.arrow_forward_ios_rounded),
-                                  onPressed: () {},
-                                ),
-                                onTap: () {},
-                              ),
-                              SizedBox(height: 10),
-                              Divider(),
-                              SizedBox(height: 10),
-                              ListTile(
-                                leading: Container(
-                                  width: 50,
-                                  decoration: BoxDecoration(
-                                    color: Colors.indigo.shade50,
-                                    borderRadius: BorderRadius.circular(5),
-                                  ),
-                                  alignment: Alignment.center,
-                                  child: Icon(
-                                    Icons.credit_card_rounded,
-                                    color: Colors.indigo.shade400,
-                                    size: 30,
-                                  ),
-                                ),
-                                title: Text(
-                                  'Payment History',
-                                  style: TextStyle(
-                                    fontFamily: 'Poppins-Semibold',
-                                    fontSize: 18,
-                                    color: Colors.grey.shade800,
-                                  ),
-                                ),
-                                trailing: IconButton(
-                                  icon: Icon(Icons.arrow_forward_ios_rounded),
-                                  onPressed: () {},
-                                ),
-                                onTap: () {},
-                              ),
-                              SizedBox(height: 20),
+                              SizedBox(height: 20,),
                             ],
                           ),
                         ),
@@ -516,6 +394,53 @@ class _PersonalAccountState extends State<PersonalAccount> {
             ),
           ),
         ],
+      ),
+    );
+  }
+
+  Widget blockMenuButton(IconData icon, String title, BuildContext context) {
+    return Container(
+      padding: EdgeInsets.only(left: 10, right: 10),
+      child: Container(
+        width: 200,
+        height: 200,
+        padding: EdgeInsets.all(20),
+        decoration: BoxDecoration(
+          color: Colors.white10,
+          borderRadius: BorderRadius.circular(5),
+          border: Border.fromBorderSide(
+            BorderSide(color: Colors.grey.shade200, width: 2),
+          ),
+        ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Container(
+              width: 60,
+              height: 60,
+              decoration: BoxDecoration(
+                color: Colors.indigo.shade50,
+                borderRadius: BorderRadius.circular(5),
+              ),
+              alignment: Alignment.center,
+              child: Icon(
+                icon,
+                color: Colors.indigo.shade400,
+                size: 40,
+              ),
+            ),
+            SizedBox(height: 40,),
+            Text(
+              title,
+              style: TextStyle(
+                fontFamily: 'Poppins-Semibold',
+                fontSize: 18,
+                color: Colors.grey.shade800,
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

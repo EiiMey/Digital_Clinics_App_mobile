@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-
-void main() {
-  runApp(MaterialApp(home: NotificationPage()));
+class NotificationPage extends StatefulWidget {
+  @override
+  State<NotificationPage> createState() => _NotificationPageState();
 }
 
-class NotificationPage extends StatelessWidget {
+class _NotificationPageState extends State<NotificationPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
