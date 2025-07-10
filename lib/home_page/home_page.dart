@@ -1,8 +1,8 @@
-
 import 'package:flutter/material.dart';
 
-
-
+void main() {
+  runApp(MaterialApp(home: MyHomePage(), debugShowCheckedModeBanner: false));
+}
 
 class MyHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
@@ -463,14 +463,14 @@ class MyHomePage extends StatelessWidget {
               margin: EdgeInsets.only(left: 25),
               child: IconButton(
                 onPressed: () {},
-                icon: Icon(Icons.home, size: 46, color: Colors.indigoAccent),
+                icon: Icon(Icons.home, size: 40, color: Colors.indigoAccent),
               ),
             ),
 
             Container(
               child: IconButton(
                 onPressed: () {},
-                icon: Icon(Icons.comment, size: 46, color: Colors.grey),
+                icon: Icon(Icons.comment, size: 40, color: Colors.grey),
               ),
             ),
 
@@ -481,7 +481,7 @@ class MyHomePage extends StatelessWidget {
                 },
                 icon: Icon(
                   Icons.medical_services,
-                  size: 46,
+                  size: 40,
                   color: Colors.grey,
                 ),
               ),
@@ -490,17 +490,15 @@ class MyHomePage extends StatelessWidget {
             Container(
               child: IconButton(
                 onPressed: () {},
-                icon: Icon(Icons.calendar_month, size: 46, color: Colors.grey),
+                icon: Icon(Icons.calendar_month, size: 40, color: Colors.grey),
               ),
             ),
 
             Container(
               margin: EdgeInsets.only(right: 25),
               child: IconButton(
-                onPressed: () {
-                    
-                },
-                icon: Icon(Icons.person_outlined, size: 46, color: Colors.grey),
+                onPressed: () {},
+                icon: Icon(Icons.person_outline_rounded, size: 40, color: Colors.grey),
               ),
             ),
           ],
@@ -508,4 +506,49 @@ class MyHomePage extends StatelessWidget {
       ),
     );
   }
+
+  // Widget _toggleButtonMenu(IconData icon, String title, BuildContext context) {
+  //   return Container(
+  //     width: 200,
+  //     height: 200,
+  //     margin: EdgeInsets.only(left: 10, top: 10),
+  //     child: ElevatedButton(
+  //       onPressed: () {
+  //         Navigator.pushNamed(context, '/doctor_page');
+  //       },
+  //       style: ElevatedButton.styleFrom(
+  //         elevation: 2,
+  //         shape: RoundedRectangleBorder(
+  //           borderRadius: BorderRadius.circular(10),
+  //         ),
+  //       ),
+  //       child: Column(
+  //         children: [
+  //           Container(
+  //             margin: EdgeInsets.only(right: 85, top: 25),
+  //             width: 50,
+  //             height: 50,
+  //             decoration: BoxDecoration(
+  //               image: DecorationImage(
+  //                 image: AssetImage('assets/images/doctor 1.png'),
+  //                 fit: BoxFit.cover,
+  //               ),
+  //             ),
+  //           ),
+  //           Container(
+  //             margin: EdgeInsets.only(right: 75, top: 25),
+  //             child: Text('Doctor', style: TextStyle(fontSize: 20)),
+  //           ),
+  //           Container(
+  //             margin: EdgeInsets.only(right: 25),
+  //             child: Text(
+  //               'Short Description',
+  //               style: TextStyle(fontSize: 14, color: Colors.grey),
+  //             ),
+  //           ),
+  //         ],
+  //       ),
+  //     ),
+  //   );
+  // }
 }
