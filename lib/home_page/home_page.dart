@@ -1,10 +1,6 @@
 import 'package:_113_clinics_app_mobile/profiles_layout/personal_account.dart';
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(MaterialApp(home: MyHomePage(), debugShowCheckedModeBanner: false));
-}
-
 class MyHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
