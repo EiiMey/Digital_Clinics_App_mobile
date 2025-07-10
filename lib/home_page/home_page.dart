@@ -1,3 +1,4 @@
+import 'package:_113_clinics_app_mobile/profiles_layout/personal_account.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -462,7 +463,9 @@ class MyHomePage extends StatelessWidget {
             Container(
               margin: EdgeInsets.only(left: 25),
               child: IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  
+                },
                 icon: Icon(Icons.home, size: 40, color: Colors.indigoAccent),
               ),
             ),
@@ -497,8 +500,17 @@ class MyHomePage extends StatelessWidget {
             Container(
               margin: EdgeInsets.only(right: 25),
               child: IconButton(
-                onPressed: () {},
-                icon: Icon(Icons.person_outline_rounded, size: 40, color: Colors.grey),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => PersonalAccount()),
+                  );
+                },
+                icon: Icon(
+                  Icons.person_outline_rounded,
+                  size: 40,
+                  color: Colors.grey,
+                ),
               ),
             ),
           ],
@@ -506,49 +518,4 @@ class MyHomePage extends StatelessWidget {
       ),
     );
   }
-
-  // Widget _toggleButtonMenu(IconData icon, String title, BuildContext context) {
-  //   return Container(
-  //     width: 200,
-  //     height: 200,
-  //     margin: EdgeInsets.only(left: 10, top: 10),
-  //     child: ElevatedButton(
-  //       onPressed: () {
-  //         Navigator.pushNamed(context, '/doctor_page');
-  //       },
-  //       style: ElevatedButton.styleFrom(
-  //         elevation: 2,
-  //         shape: RoundedRectangleBorder(
-  //           borderRadius: BorderRadius.circular(10),
-  //         ),
-  //       ),
-  //       child: Column(
-  //         children: [
-  //           Container(
-  //             margin: EdgeInsets.only(right: 85, top: 25),
-  //             width: 50,
-  //             height: 50,
-  //             decoration: BoxDecoration(
-  //               image: DecorationImage(
-  //                 image: AssetImage('assets/images/doctor 1.png'),
-  //                 fit: BoxFit.cover,
-  //               ),
-  //             ),
-  //           ),
-  //           Container(
-  //             margin: EdgeInsets.only(right: 75, top: 25),
-  //             child: Text('Doctor', style: TextStyle(fontSize: 20)),
-  //           ),
-  //           Container(
-  //             margin: EdgeInsets.only(right: 25),
-  //             child: Text(
-  //               'Short Description',
-  //               style: TextStyle(fontSize: 14, color: Colors.grey),
-  //             ),
-  //           ),
-  //         ],
-  //       ),
-  //     ),
-  //   );
-  // }
 }

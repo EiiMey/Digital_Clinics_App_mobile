@@ -705,7 +705,10 @@ class DoctorPage extends StatelessWidget {
               margin: EdgeInsets.only(left: 25),
               child: IconButton(
                 onPressed: () {
-                  Navigator.pushNamed(context, '/home');
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => DoctorPage()),
+                  );
                 },
                 icon: Icon(Icons.home, size: 46, color: Colors.grey),
               ),

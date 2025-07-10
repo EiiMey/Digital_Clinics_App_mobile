@@ -1,3 +1,5 @@
+import 'package:_113_clinics_app_mobile/home_page/home_page.dart';
+import 'package:_113_clinics_app_mobile/main.dart';
 import 'package:flutter/material.dart';
 import 'package:_113_clinics_app_mobile/profiles_layout/profile_settings.dart';
 
@@ -39,6 +41,18 @@ class _PersonalAccountState extends State<PersonalAccount> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
+                            IconButton(
+                              icon: Icon(Icons.arrow_back_ios_new_rounded, size: 30, color: Colors.white,),
+                              onPressed: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => MyHomePage(),
+                                  ),
+                                );
+                              },
+                            ),
+                            SizedBox(width: 10,),
                             Title(
                               color: Colors.white,
                               child: Text(
@@ -382,7 +396,7 @@ class _PersonalAccountState extends State<PersonalAccount> {
                                   ],
                                 ),
                               ),
-                              SizedBox(height: 20,),
+                              SizedBox(height: 20),
                             ],
                           ),
                         ),
@@ -424,13 +438,9 @@ class _PersonalAccountState extends State<PersonalAccount> {
                 borderRadius: BorderRadius.circular(5),
               ),
               alignment: Alignment.center,
-              child: Icon(
-                icon,
-                color: Colors.indigo.shade400,
-                size: 40,
-              ),
+              child: Icon(icon, color: Colors.indigo.shade400, size: 40),
             ),
-            SizedBox(height: 40,),
+            SizedBox(height: 40),
             Text(
               title,
               style: TextStyle(

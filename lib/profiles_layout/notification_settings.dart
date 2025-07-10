@@ -89,7 +89,7 @@ class _NotificationPageState extends State<NotificationPage> {
     required ValueChanged<bool> onChanged,
   }) {
     return ListTile(
-      contentPadding: EdgeInsets.only(left: 10, right: 10),
+      contentPadding: EdgeInsets.only(left: 20, right: 20),
       title: Text(title, style: TextStyle(fontFamily: 'Poppins-Semibold')),
       subtitle: Text(subtitle, style: TextStyle(fontFamily: 'Poppins-Regular'),),
       trailing: Switch(
