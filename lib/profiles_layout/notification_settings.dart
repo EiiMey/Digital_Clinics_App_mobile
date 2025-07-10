@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 class NotificationPage extends StatefulWidget {
   @override
   State<NotificationPage> createState() => _NotificationPageState();
@@ -8,18 +9,31 @@ class _NotificationPageState extends State<NotificationPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Notifications")),
-      body: Center(
-        child: ElevatedButton(
-          child: Text("Open Notification Settings"),
-          onPressed: () {
-            showDialog(
-              context: context,
-              builder: (context) => NotificationSettingsDialog(),
-            );
-          },
+      appBar: AppBar(
+        toolbarHeight: 100,
+        backgroundColor: Colors.indigo.shade400,
+        leadingWidth: 80,
+        leading: Stack(
+          children: [
+            Positioned(
+              left: 10,
+              bottom: 10,
+              child: IconButton(
+                onPressed: () {},
+                icon: Icon(
+                  Icons.arrow_back_ios_new,
+                  size: 30,
+                  color: Colors.white,
+                ),
+              ),
+            ),
+          ],
+        ),
+        title: Stack(
+          children: [Positioned(bottom: 10, child: Text('Notification'))],
         ),
       ),
+      body: Stack(children: [SingleChildScrollView(child: Container())]),
     );
   }
 }
