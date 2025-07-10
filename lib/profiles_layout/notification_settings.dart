@@ -1,10 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(MaterialApp(home: NotificationPage()));
-}
-
 class NotificationPage extends StatefulWidget {
   @override
   State<NotificationPage> createState() => _NotificationPageState();
