@@ -1,4 +1,6 @@
+import 'package:_113_clinics_app_mobile/profiles_layout/personal_account.dart';
 import 'package:flutter/material.dart';
+import 'package:_113_clinics_app_mobile/home_page/home_page.dart';
 
 class DoctorPage extends StatelessWidget {
   Widget build(BuildContext context) {
@@ -707,17 +709,17 @@ class DoctorPage extends StatelessWidget {
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => DoctorPage()),
+                    MaterialPageRoute(builder: (context) => MyHomePage()),
                   );
                 },
-                icon: Icon(Icons.home, size: 46, color: Colors.grey),
+                icon: Icon(Icons.home, size: 40, color: Colors.grey),
               ),
             ),
 
             Container(
               child: IconButton(
                 onPressed: () {},
-                icon: Icon(Icons.comment, size: 46, color: Colors.grey),
+                icon: Icon(Icons.comment, size: 40, color: Colors.grey),
               ),
             ),
 
@@ -726,7 +728,7 @@ class DoctorPage extends StatelessWidget {
                 onPressed: () {},
                 icon: Icon(
                   Icons.medical_services,
-                  size: 46,
+                  size: 40,
                   color: Colors.blueAccent,
                 ),
               ),
@@ -735,15 +737,20 @@ class DoctorPage extends StatelessWidget {
             Container(
               child: IconButton(
                 onPressed: () {},
-                icon: Icon(Icons.calendar_month, size: 46, color: Colors.grey),
+                icon: Icon(Icons.calendar_month, size: 40, color: Colors.grey),
               ),
             ),
 
             Container(
               margin: EdgeInsets.only(right: 25),
               child: IconButton(
-                onPressed: () {},
-                icon: Icon(Icons.person_outlined, size: 46, color: Colors.grey),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => PersonalAccount()),
+                  );
+                },
+                icon: Icon(Icons.person_outlined, size: 40, color: Colors.grey),
               ),
             ),
           ],

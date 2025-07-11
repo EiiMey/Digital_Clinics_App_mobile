@@ -5,6 +5,8 @@ class MyHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Stack(
             children: [
@@ -54,7 +56,8 @@ class MyHomePage extends StatelessWidget {
               child: Column(
                 children: [
                   Container(
-                    margin: EdgeInsets.only(left: 10, right: 10, top: 10),
+                    margin: EdgeInsets.all(20),
+                    padding: EdgeInsets.only(left: 10, right: 10),
                     child: ElevatedButton(
                       onPressed: () {
                         Navigator.pushNamed(context, '/nopage_page');
@@ -122,8 +125,8 @@ class MyHomePage extends StatelessWidget {
                       ),
                     ),
                   ),
-
                   Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
                       Container(
                         width: 200,
@@ -175,7 +178,6 @@ class MyHomePage extends StatelessWidget {
                           ),
                         ),
                       ),
-                      Spacer(),
                       Container(
                         margin: EdgeInsets.only(right: 10, top: 10),
                         width: 200,
@@ -228,8 +230,9 @@ class MyHomePage extends StatelessWidget {
                       ),
                     ],
                   ),
-
+                  SizedBox(height: 20,),
                   Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
                       Container(
                         width: 200,
@@ -279,7 +282,6 @@ class MyHomePage extends StatelessWidget {
                           ),
                         ),
                       ),
-                      Spacer(),
                       Container(
                         margin: EdgeInsets.only(right: 10, top: 10),
                         width: 200,
@@ -330,8 +332,9 @@ class MyHomePage extends StatelessWidget {
                       ),
                     ],
                   ),
-
+                  SizedBox(height: 20,),
                   Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
                       Container(
                         width: 200,
@@ -381,7 +384,6 @@ class MyHomePage extends StatelessWidget {
                           ),
                         ),
                       ),
-                      Spacer(),
                       Container(
                         margin: EdgeInsets.only(right: 10, top: 10),
                         width: 200,
@@ -432,13 +434,13 @@ class MyHomePage extends StatelessWidget {
                       ),
                     ],
                   ),
+                  SizedBox(height: 20,),
                 ],
               ),
             ),
           ),
         ],
       ),
-
       bottomNavigationBar: Container(
         width: double.infinity,
         height: 70,

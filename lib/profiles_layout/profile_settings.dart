@@ -1,3 +1,4 @@
+import 'package:_113_clinics_app_mobile/about_splase/support_page.dart';
 import 'package:flutter/material.dart';
 import 'package:_113_clinics_app_mobile/profiles_layout/personal_account.dart';
 import 'package:_113_clinics_app_mobile/profiles_layout/edit_account.dart';
@@ -53,9 +54,7 @@ class ProfileSettingsPage extends StatelessWidget {
                     children: [
                       CircleAvatar(
                         radius: 60,
-                        backgroundImage: AssetImage(
-                          'assets/images/Avatar.png',
-                        ),
+                        backgroundImage: AssetImage('assets/images/Avatar.png'),
                       ),
                       SizedBox(height: 10),
                       Text(
@@ -172,9 +171,10 @@ class ProfileSettingsPage extends StatelessWidget {
             MaterialPageRoute(builder: (context) => NotificationPage()),
           );
         } else if (title == 'Support') {
-          ScaffoldMessenger.of(
+          Navigator.push(
             context,
-          ).showSnackBar(SnackBar(content: Text('Support page coming soon!')));
+            MaterialPageRoute(builder: (context) => SupportPage()),
+          );
         } else if (title == 'Privacy Policy') {
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(content: Text('Privacy Policy coming soon!')),

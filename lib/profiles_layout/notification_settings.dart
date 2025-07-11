@@ -21,7 +21,7 @@ class _NotificationPageState extends State<NotificationPage> {
         toolbarHeight: 100,
         backgroundColor: Colors.indigo.shade400,
         leading: Padding(
-          padding: const EdgeInsets.only(left: 10, bottom: 10),
+          padding: const EdgeInsets.only(top: 40,left: 10, bottom: 10),
           child: IconButton(
             onPressed: () => Navigator.pop(context), // Back action
             icon: Icon(Icons.arrow_back_ios_new, size: 30, color: Colors.white),
