@@ -1,4 +1,4 @@
-import 'package:_113_clinics_app_mobile/log_in_sign_up/caccount.dart';
+import 'package:Digital_Clinics_App_mobile/log_in_sign_up/caccount.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 

@@ -1,4 +1,4 @@
-import 'package:_113_clinics_app_mobile/profiles_layout/profile_settings.dart';
+import 'package:Digital_Clinics_App_mobile/profiles_layout/profile_settings.dart';
 import 'package:flutter/material.dart';
 
 class SupportPage extends StatelessWidget {

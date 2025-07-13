@@ -1,7 +1,6 @@
-import 'package:_113_clinics_app_mobile/home_page/home_page.dart';
-import 'package:_113_clinics_app_mobile/main.dart';
+import 'package:Digital_Clinics_App_mobile/home_page/home_page.dart';
+import 'package:Digital_Clinics_App_mobile/profiles_layout/profile_settings.dart';
 import 'package:flutter/material.dart';
-import 'package:_113_clinics_app_mobile/profiles_layout/profile_settings.dart';
 
 void main() {
   runApp(

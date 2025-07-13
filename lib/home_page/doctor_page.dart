@@ -1,6 +1,6 @@
-import 'package:_113_clinics_app_mobile/profiles_layout/personal_account.dart';
+import 'package:Digital_Clinics_App_mobile/home_page/home_page.dart';
+import 'package:Digital_Clinics_App_mobile/profiles_layout/doctor_profiles.dart';
 import 'package:flutter/material.dart';
-import 'package:_113_clinics_app_mobile/home_page/home_page.dart';
 
 class DoctorPage extends StatelessWidget {
   Widget build(BuildContext context) {
@@ -9,7 +9,6 @@ class DoctorPage extends StatelessWidget {
         children: [
           Container(
             width: double.infinity,
-            height: 170,
             decoration: BoxDecoration(color: Colors.blueAccent),
             child: Column(
               children: [
@@ -37,29 +36,35 @@ class DoctorPage extends StatelessWidget {
                   ],
                 ),
 
-                Expanded(
-                  child: TextField(
-                    decoration: InputDecoration(
-                      hintText: "Search doctor, clinic...",
-                      hintStyle: TextStyle(fontSize: 14.0, color: Colors.white),
-                      prefixIcon: Icon(
-                        Icons.search,
-                        size: 20,
-                        color: Colors.white,
+                Container(
+                  padding: EdgeInsets.only(top: 10, bottom: 20, left: 10, right: 10),
+                  child: Expanded(
+                    child: TextField(
+                      decoration: InputDecoration(
+                        hintText: "Search doctor, clinic...",
+                        hintStyle: TextStyle(
+                          fontSize: 16.0,
+                          color: Colors.white,
+                        ),
+                        prefixIcon: Icon(
+                          Icons.search,
+                          size: 20,
+                          color: Colors.white,
+                        ),
+                        isDense: true,
+                        contentPadding: EdgeInsets.symmetric(
+                          vertical: 20,
+                          horizontal: 10,
+                        ),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10.0),
+                        ),
                       ),
-                      isDense: true,
-                      contentPadding: EdgeInsets.symmetric(
-                        vertical: 10,
-                        horizontal: 12,
-                      ),
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(20.0),
-                      ),
+                      style: TextStyle(fontSize: 16.0, color: Colors.white),
+                      onSubmitted: (value) {
+                        print("Searching: $value");
+                      },
                     ),
-                    style: TextStyle(fontSize: 14.0, color: Colors.white),
-                    onSubmitted: (value) {
-                      print("Searching: $value");
-                    },
                   ),
                 ),
               ],
@@ -97,7 +102,12 @@ class DoctorPage extends StatelessWidget {
                     height: 165,
                     margin: EdgeInsets.only(left: 10, right: 10, top: 10),
                     child: ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => DoctorProfilePage()),
+                        );
+                      },
                       style: ElevatedButton.styleFrom(
                         padding: EdgeInsets.all(15),
                         elevation: 2,
@@ -685,77 +695,7 @@ class DoctorPage extends StatelessWidget {
           ),
         ],
       ),
-
-      bottomNavigationBar: Container(
-        width: double.infinity,
-        height: 70,
-        decoration: BoxDecoration(
-          color: Colors.white,
-          boxShadow: [
-            BoxShadow(
-              color: const Color.fromARGB(255, 117, 117, 117).withOpacity(0.1),
-              spreadRadius: 1,
-              blurRadius: 1,
-              offset: Offset(0, -2),
-            ),
-          ],
-        ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Container(
-              margin: EdgeInsets.only(left: 25),
-              child: IconButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => MyHomePage()),
-                  );
-                },
-                icon: Icon(Icons.home, size: 40, color: Colors.grey),
-              ),
-            ),
-
-            Container(
-              child: IconButton(
-                onPressed: () {},
-                icon: Icon(Icons.comment, size: 40, color: Colors.grey),
-              ),
-            ),
-
-            Container(
-              child: IconButton(
-                onPressed: () {},
-                icon: Icon(
-                  Icons.medical_services,
-                  size: 40,
-                  color: Colors.blueAccent,
-                ),
-              ),
-            ),
-
-            Container(
-              child: IconButton(
-                onPressed: () {},
-                icon: Icon(Icons.calendar_month, size: 40, color: Colors.grey),
-              ),
-            ),
-
-            Container(
-              margin: EdgeInsets.only(right: 25),
-              child: IconButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => PersonalAccount()),
-                  );
-                },
-                icon: Icon(Icons.person_outlined, size: 40, color: Colors.grey),
-              ),
-            ),
-          ],
-        ),
-      ),
+      bottomNavigationBar: AppBottomNavigationBar(context: context),
     );
   }
 }

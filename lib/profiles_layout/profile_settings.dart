@@ -1,8 +1,8 @@
-import 'package:_113_clinics_app_mobile/about_splase/support_page.dart';
+import 'package:Digital_Clinics_App_mobile/about_splase/support_page.dart';
+import 'package:Digital_Clinics_App_mobile/profiles_layout/edit_account.dart';
+import 'package:Digital_Clinics_App_mobile/profiles_layout/notification_settings.dart';
+import 'package:Digital_Clinics_App_mobile/profiles_layout/personal_account.dart';
 import 'package:flutter/material.dart';
-import 'package:_113_clinics_app_mobile/profiles_layout/personal_account.dart';
-import 'package:_113_clinics_app_mobile/profiles_layout/edit_account.dart';
-import 'package:_113_clinics_app_mobile/profiles_layout/notification_settings.dart';
 
 class ProfileSettingsPage extends StatelessWidget {
   @override

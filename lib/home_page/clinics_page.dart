@@ -1,21 +1,11 @@
 import 'package:flutter/material.dart';
 
-
-
-class ClinicApp extends StatelessWidget {
-  const ClinicApp({super.key});
-
+class ClinicListScreen extends StatefulWidget {
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Clinics',
-      debugShowCheckedModeBanner: false,
-      home: ClinicListScreen(),
-    );
-  }
+  State<ClinicListScreen> createState() => _ClinicListScreenState();
 }
 
-class ClinicListScreen extends StatelessWidget {
+class _ClinicListScreenState extends State<ClinicListScreen> {
   final List<Map<String, String>> clinics = [
     {
       'name': 'Khema Clinic & Maternity',
@@ -23,7 +13,7 @@ class ClinicListScreen extends StatelessWidget {
       'address': '987 Blaise Drive Suite 420',
       'image':
           'https://via.placeholder.com/60', // Replace with your asset or network image
-      'rating': '4.7'
+      'rating': '4.7',
     },
     {
       'name': 'Central Hospital',
@@ -31,7 +21,7 @@ class ClinicListScreen extends StatelessWidget {
       'address': '987 Blaise Drive Suite 420',
       'image':
           'https://via.placeholder.com/60', // Replace with your asset or network image
-      'rating': '4.7'
+      'rating': '4.7',
     },
     {
       'name': 'Naga Clinic',
@@ -39,7 +29,7 @@ class ClinicListScreen extends StatelessWidget {
       'address': '987 Blaise Drive Suite 420',
       'image':
           'https://via.placeholder.com/60', // Replace with your asset or network image
-      'rating': '4.7'
+      'rating': '4.7',
     },
     {
       'name': 'Raffles Medical Phnom Penh',
@@ -47,7 +37,7 @@ class ClinicListScreen extends StatelessWidget {
       'address': '987 Blaise Drive Suite 420',
       'image':
           'https://via.placeholder.com/60', // Replace with your asset or network image
-      'rating': '4.7'
+      'rating': '4.7',
     },
     {
       'name': 'U-Care Medical Clinicc',
@@ -55,7 +45,7 @@ class ClinicListScreen extends StatelessWidget {
       'address': '987 Blaise Drive Suite 420',
       'image':
           'https://via.placeholder.com/60', // Replace with your asset or network image
-      'rating': '4.7'
+      'rating': '4.7',
     },
     {
       'name': 'Sen Sok International University Hospital',
@@ -63,7 +53,7 @@ class ClinicListScreen extends StatelessWidget {
       'address': '987 Blaise Drive Suite 420',
       'image':
           'https://via.placeholder.com/60', // Replace with your asset or network image
-      'rating': '4.7'
+      'rating': '4.7',
     },
     {
       'name': 'Sunrise Japan Hospital Phnom Penh',
@@ -71,7 +61,7 @@ class ClinicListScreen extends StatelessWidget {
       'address': '987 Blaise Drive Suite 420',
       'image':
           'https://via.placeholder.com/60', // Replace with your asset or network image
-      'rating': '4.7'
+      'rating': '4.7',
     },
     {
       'name': 'Sihanouk Hospital Center of HOPE',
@@ -79,7 +69,7 @@ class ClinicListScreen extends StatelessWidget {
       'address': '987 Blaise Drive Suite 420',
       'image':
           'https://via.placeholder.com/60', // Replace with your asset or network image
-      'rating': '4.7'
+      'rating': '4.7',
     },
   ];
 
@@ -87,13 +77,54 @@ class ClinicListScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Clinics'),
-        backgroundColor: const Color(0xFF6A6FE9),
-        leading: const Icon(Icons.arrow_back),
-        actions: const [
-          Icon(Icons.search),
+        toolbarHeight: 100,
+        title: Padding(
+          padding: EdgeInsetsGeometry.only(top: 20),
+          child: const Text(
+            'Clinics',
+            style: TextStyle(
+              fontFamily: 'Poppins-Semibold',
+              fontSize: 24,
+              color: Colors.white,
+            ),
+          ),
+        ),
+        backgroundColor: Colors.indigo.shade400,
+        leading: Padding(
+          padding: EdgeInsetsGeometry.only(top: 20),
+          child: IconButton(
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            icon: Icon(Icons.arrow_back, size: 30, color: Colors.white),
+            splashColor: Colors.transparent,
+            highlightColor: Colors.transparent,
+            hoverColor: Colors.transparent,
+            splashRadius: 20,
+            padding: EdgeInsets.zero,
+            constraints: BoxConstraints(),
+          ),
+        ),
+        actions: [
+          Padding(
+            padding: EdgeInsetsGeometry.only(top: 20),
+            child: IconButton(
+              onPressed: () {},
+              icon: Icon(Icons.search, size: 30, color: Colors.white),
+            ),
+          ),
           SizedBox(width: 10),
-          Icon(Icons.location_on),
+          Padding(
+            padding: EdgeInsetsGeometry.only(top: 20),
+            child: IconButton(
+              onPressed: () {},
+              icon: Icon(
+                Icons.location_on_outlined,
+                size: 30,
+                color: Colors.white,
+              ),
+            ),
+          ),
           SizedBox(width: 10),
         ],
       ),
